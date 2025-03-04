@@ -8,39 +8,17 @@ import pyfiglet
 
 colorama.init()
 
+"""
+Hangman logo created with colorama and pyfiglet
+"""
 
 result = pyfiglet.figlet_format(" H A N G M A N ", font= "alligator")
 print(colorama.Fore.RED + colorama.Style.BRIGHT + result)
-
-
 print(colorama.Fore.RESET + colorama.Style.RESET_ALL)
 
-"""
-hangman_asci = {0: ("    ",
-                   "    ",
-                   "    "),
-                1: ("  0  ",
-                   "    ",
-                   "    "),
-                2: ("  0  ",
-                   "  |  ",
-                   "    "),
-                3: ("  0  ",
-                   " /|  ",
-                   "    "),
-                4: ("  0  ",
-                   " /|\\",
-                   "    "),
-                5: ("  0  ",
-                   " /|\\",
-                   " /  "),
-                6: ("  0  ",
-                   " /|\\",
-                   " / \\ "),
-}
 
-for line in hangman_asci[5]:
-    print(line)
+"""
+Hangman image building up after every wrong guess.
 """
 
 def hangmanDisplay(wrongGuesses):
@@ -60,7 +38,6 @@ def hangmanDisplay(wrongGuesses):
             print("|       /|\\")
         else:
             print("|")
-
     if wrongGuesses >= 5:
         if wrongGuesses == 5:
            print("|       / ")
@@ -74,22 +51,35 @@ def hangmanDisplay(wrongGuesses):
     else:
         print("|")
     print("|")
-
     print("|____________")
-
 
 print(colorama.Fore.YELLOW + colorama.Back.RED)
 
-hangman = hangmanDisplay(6)
-
+hangmanDisplay(6)
 
 print(colorama.Back.RESET + colorama.Fore.RESET + colorama.Style.RESET_ALL)
-
 print("")
+print("")
+
+"""
+Explain the rules of hangman
+"""
+
+print(colorama.Fore.LIGHTCYAN_EX + colorama.Style.DIM + "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
+print(colorama.Back.RESET + colorama.Fore.RESET + colorama.Style.RESET_ALL)
+print("HOW TO PLAY HANGMAN\n" 
+      "\nHangman is a fun game for all ages. As soon as you have learned a few words in school, you are able to play this game!\n"
+      "\n1. You are shown a number of underlines. Every underline is a letter you need to guess.\n"
+      "2. You are asked to type one letter each time "
+      "3. The letter is in the word? Great! you will see its place in the word shown now.\n"
+      "4. Wrong guess? For each letter you guessed wrong a part of the hangman will appear\n"
+      "5. You have six lives for each word you start. 6 times a wrong answer? You lost...\n"
+      "6. You guessed all letters, found the word and your hangman isn't finished? Congratulations! You have won!\n")
 print(colorama.Fore.LIGHTCYAN_EX + colorama.Style.DIM + "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
 
+"""
 
-
+"""
 """
 #start with a number of lives
 def hangman(words):
