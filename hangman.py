@@ -78,8 +78,16 @@ print("HOW TO PLAY HANGMAN\n"
 print(colorama.Fore.LIGHTCYAN_EX + colorama.Style.DIM + "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
 
 """
-
+Function to choose a randoom word from the list which should be uppercase to prevent errors
 """
+
+def newWord(words):
+    word = random.choice(words).upper()
+    print(word)
+
+newWord(words)
+
+
 """
 #start with a number of lives
 def hangman(words):
