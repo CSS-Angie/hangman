@@ -1,32 +1,31 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-Welcome,
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **May 14, 2024**
 
-## Reminders
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
 
-## Creating the Heroku app
+#start with a number of lives
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+# when play is pushed, start the game
 
-1. `heroku/python`
-2. `heroku/nodejs`
+# choose a random word from the words file and show the places of the total number of letters
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+# let words all be uppercase
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+# let the player choose a letter for the word and make it uppercase
 
-Connect your GitHub repository and deploy as normal.
+# make sure it is just a letter - return a wrong message if a non-letter was typed
 
-## Constraints
+# if letter is right fill out letter in the right place
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+# show the word and leave the places with not guessed letters blank
 
----
+# if letter is wrong give a message it is wrong
 
-Happy coding!
+# if the letter is wrong decrease the numbers of live and display an extra limb on the hangman
+
+# end the game after the number of lives is 0 / hangman full OR if no letters are left to guess
+
+# print a message with the results
+
+
+

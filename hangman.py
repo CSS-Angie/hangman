@@ -78,36 +78,42 @@ print("HOW TO PLAY HANGMAN\n"
 print(colorama.Fore.LIGHTCYAN_EX + colorama.Style.DIM + "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
 
 """
-Function to choose a random word from the list which should be uppercase to prevent errors
+Function to choose a random word from the list which should be uppercase to prevent errors. 
+Show underscores that match the number of letters of the word that needs to be guessed.
 """
 
 def newWord(words):
     word = random.choice(words).upper()
     print(word)
+    underscoreWord = len(word)*" _ "
+    print(underscoreWord)
 
 newWord(words)
 
 
 """
-Show underscores that match the number of letters of the word that needs to be guessed
-"""
-underscoreWord = len(word)*(_)
-print(underscoreWord)
-
-
-"""
 Function to confirm the typed character is a letter and is uppercase to avoid failures
 """
-def letter():
-    input("Guess a letter: ").upper()
+def letterInput():
+    letter = input("Guess a letter: ").upper()
     if letter.isalpha():
-            #showLettter()
+            showLettter()
+    elif letter in guesedLetters:
+        print("You already tried this letter. Choose another.")
     else: 
         print("Please, choose a letter")
 
-letter()
-
-#def showLetter():
+letterInput()
+ 
+def showLetter():
+    wrongGuesses = 0
+    guessed_letters = set()
+    letter.add(guessed_letters)
+    if letter in words:
+        
+    else:    
+    wrongGuesses +1
+    return hangmanDisplay()
 
 """
 def hangman(words):
@@ -116,17 +122,12 @@ hangman_hanging = {0: (")}
 
 # when play is pushed, start the game
 playgame():
-# choose a random word from the words file and show the places of the total number of letters
-word = random.choice(words).upper
-# let words all be uppercase
 
 # let the player choose a letter for the word and make it uppercase
 input = ("Pick a letter: ").upper
 # make sure it is just a letter - return a wrong message if a non-letter was typed
 
 # if letter is right fill out letter in the right place
-
-# show the word and leave the places with not guessed letters blank
 
 # if letter is wrong give a message it is wrong
 
