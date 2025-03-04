@@ -18,7 +18,7 @@ print(colorama.Fore.RESET + colorama.Style.RESET_ALL)
 
 
 """
-Hangman image building up after every wrong guess.
+Hangman image building up after every wrong guess. Inspired by JakeEh https://www.youtube.com/@jakeeh.
 """
 
 def hangmanDisplay(wrongGuesses):
@@ -78,7 +78,7 @@ print("HOW TO PLAY HANGMAN\n"
 print(colorama.Fore.LIGHTCYAN_EX + colorama.Style.DIM + "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
 
 """
-Function to choose a randoom word from the list which should be uppercase to prevent errors
+Function to choose a random word from the list which should be uppercase to prevent errors
 """
 
 def newWord(words):
@@ -89,7 +89,27 @@ newWord(words)
 
 
 """
-#start with a number of lives
+Show underscores that match the number of letters of the word that needs to be guessed
+"""
+underscoreWord = len(word)*(_)
+print(underscoreWord)
+
+
+"""
+Function to confirm the typed character is a letter and is uppercase to avoid failures
+"""
+def letter():
+    input("Guess a letter: ").upper()
+    if letter.isalpha():
+            #showLettter()
+    else: 
+        print("Please, choose a letter")
+
+letter()
+
+#def showLetter():
+
+"""
 def hangman(words):
 #start with a number of lives
 hangman_hanging = {0: (")}
