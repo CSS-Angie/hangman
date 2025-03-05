@@ -1,6 +1,5 @@
 import random
 from words import words 
-from pprint import pprint
 
 import colorama
 from colorama import Fore, Back, Style
@@ -55,7 +54,7 @@ def hangmanDisplay(wrongGuesses):
 
 print(colorama.Fore.YELLOW + colorama.Back.RED)
 
-hangmanDisplay(6)
+#hangmanDisplay(6)
 
 print(colorama.Back.RESET + colorama.Fore.RESET + colorama.Style.RESET_ALL)
 print("")
@@ -76,6 +75,7 @@ print("HOW TO PLAY HANGMAN\n"
       "5. You have six lives for each word you start. 6 times a wrong answer? You lost...\n"
       "6. You guessed all letters, found the word and your hangman isn't finished? Congratulations! You have won!\n")
 print(colorama.Fore.LIGHTCYAN_EX + colorama.Style.DIM + "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
+print(colorama.Back.RESET + colorama.Fore.RESET + colorama.Style.RESET_ALL)
 
 """
 Function to choose a random word from the list which should be uppercase to prevent errors. 
@@ -84,50 +84,72 @@ Show underscores that match the number of letters of the word that needs to be g
 
 def newWord(words):
     word = random.choice(words).upper()
-    print(word)
+    return word
+    #print(word)
     underscoreWord = len(word)*" _ "
-    print(underscoreWord)
+    print(" ".join(underscoreWord))
 
-newWord(words)
-
+letterWord = newWord(words)
 
 """
-Function to confirm the typed character is a letter and is uppercase to avoid failures
+Function to ask a correct letter from player and to confirm the typed character is a letter and is uppercase to avoid failures
 """
 def letterInput():
-    letter = input("Guess a letter: ").upper()
-    if letter.isalpha():
-            showLettter()
-    elif letter in guesedLetters:
-        print("You already tried this letter. Choose another.")
-    else: 
-        print("Please, choose a letter")
-
+    while True:
+        letter = input("Guess a letter: ").upper()
+        if letter.isalpha() and len(letter) == 1:
+                return letter
+        elif len(letter) > 1:
+            print("Please, choose one letter at the time")
+        else: 
+            print("Please, choose a letter")
 letterInput()
- 
-def showLetter():
-    wrongGuesses = 0
-    guessed_letters = set()
-    letter.add(guessed_letters)
-    if letter in words:
-        
-    else:    
-    wrongGuesses +1
-    return hangmanDisplay()
 
 """
-def hangman(words):
+Play the game
+"""    
+def playgame():
+    word = letterWord
+    wrongGuesses = 0
+    
+    letter = letterInput()
+    guessed_letters=set()
+    num_letters = set(word)
+
+    while len(num_letters) > 0 and wrongGuesses < 6:
+        if letter in guessed_letters:
+            print("You already tried this letter. Choose another.")
+        elif letter in num_letters: 
+            print(letter)
+        else:    
+            wrongGuesses +=1
+            guessed_letters.add(letter)
+            print("This letter is not in the word.")
+            hangmanDisplay(wrongGuesses)
+ 
+        if len(num_letters) == 0:
+            print("Congratulations! You guessed the word and won!")
+        else:
+            print("Oh oh! You hang. The word to guess was", word)
+
+playgame()
+
+"""
 #start with a number of lives
-hangman_hanging = {0: (")}
 
 # when play is pushed, start the game
-playgame():
+
+# choose a random word from the words file and show the places of the total number of letters
+
+# let words all be uppercase
 
 # let the player choose a letter for the word and make it uppercase
-input = ("Pick a letter: ").upper
+
 # make sure it is just a letter - return a wrong message if a non-letter was typed
 
 # if letter is right fill out letter in the right place
+
+# show the word and leave the places with not guessed letters blank
 
 # if letter is wrong give a message it is wrong
 
@@ -136,11 +158,4 @@ input = ("Pick a letter: ").upper
 # end the game after the number of lives is 0 / hangman full OR if no letters are left to guess
 
 # print a message with the results
-
-
-#hangman()
-
-def playgame()
-
 """
-
