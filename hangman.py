@@ -70,9 +70,9 @@ print(colorama.Back.RESET + colorama.Fore.RESET + colorama.Style.RESET_ALL)
 print("HOW TO PLAY HANGMAN\n" 
       "\nHangman is a fun game for all ages. As soon as you have learned a few words in school, you are able to play this game!\n"
       "\n1. You are shown a number of underlines. Every underline is a letter you need to guess.\n"
-      "2. You are asked to type one letter each time "
+      "2. You are asked to type one letter each time."
       "3. The letter is in the word? Great! you will see its place in the word shown now.\n"
-      "4. Wrong guess? For each letter you guessed wrong a part of the hangman will appear\n"
+      "4. Wrong guess? For each letter you guessed wrong a part of the hangman will appear.\n"
       "5. You have six lives for each word you start. 6 times a wrong answer? You lost...\n"
       "6. You guessed all letters, found the word and your hangman isn't finished? Congratulations! You have won!\n")
 print(colorama.Fore.LIGHTCYAN_EX + colorama.Style.DIM + "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
