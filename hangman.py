@@ -89,7 +89,7 @@ def newWord(words):
     #print(word)
 letterWord = newWord(words)
 
-underscoreWord = len(letterWord)*" _ "
+underscoreWord = list(len(letterWord)*" _ ")
 print(" ".join(underscoreWord))
 
 
@@ -103,7 +103,7 @@ def letterInput():
         if letter.isalpha() and len(letter) == 1:
                 return letter
         elif len(letter) > 1:
-            print("Please, choose one letter at the time")
+            print("Please, choose one letter at a time")
         else: 
             print("Please, choose a letter")
 letterInput()
@@ -113,27 +113,35 @@ Play the game
 """    
 def playgame():
     word = letterWord
+    print(word)
     wrongGuesses = 0
-    global underscoreWord
     guessed_letters=set()
+ 
     num_letters = set(word)
+    global underscoreWord
 
     while len(num_letters) > 0 and wrongGuesses < 6:
         letter = letterInput()
-        print("Used letters: ")
+        print(word)
         if letter in guessed_letters:
             print("You already tried this letter. Choose another.")
-        elif letter in num_letters: 
+        elif letter in word: 
+            for i in range(len(word)):
+                if word[i] == letter:
+                    underscoreWord[i] = letter
+            print("".join(underscoreWord))
+            print("Used letters:", guessed_letters)
             
-            
-            
-            print(letter)
+           #print(letter)
         else:    
             wrongGuesses +=1
             guessed_letters.add(letter)
             print("This letter is not in the word.")
             hangmanDisplay(wrongGuesses)
- 
+            print("Used letters: ", guessed_letters)
+
+            #End of game
+
         if len(num_letters) == 0:
             print("Congratulations! You guessed the word and won!")
             break
