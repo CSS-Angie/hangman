@@ -86,13 +86,10 @@ Show underscores that match the number of letters of the word that needs to be g
 def newWord(words):
     word = random.choice(words).upper()
     return word
-    #print(word)
 letterWord = newWord(words)
 
-underscoreWord = list(len(letterWord)*" _ ")
+underscoreWord = list(len(letterWord)*"_")
 print(" ".join(underscoreWord))
-
-
 
 """
 Function to ask a correct letter from player and to confirm the typed character is a letter and is uppercase to avoid failures
@@ -106,40 +103,37 @@ def letterInput():
             print("Please, choose one letter at a time")
         else: 
             print("Please, choose a letter")
-letterInput()
+
 
 """
 Play the game
 """    
 def playgame():
     word = letterWord
-    print(word)
+    print(" ")
     wrongGuesses = 0
-    guessed_letters=set()
- 
+    guessed_letters = set()
     num_letters = set(word)
     global underscoreWord
 
     while len(num_letters) > 0 and wrongGuesses < 6:
         letter = letterInput()
-        print(word)
-        if letter in guessed_letters:
-            print("You already tried this letter. Choose another.")
-        elif letter in word: 
+        print(" ")
+        if letter in word: 
             for i in range(len(word)):
                 if word[i] == letter:
                     underscoreWord[i] = letter
-            print("".join(underscoreWord))
-            print("Used letters:", guessed_letters)
-            
-           #print(letter)
+            print(" ".join(underscoreWord))
+            print(f"Used letters: {guessed_letters}")
+            num_letters.discard(letter)
+        elif letter in guessed_letters:
+            print("You already tried this letter. Choose another.")
         else:    
             wrongGuesses +=1
             guessed_letters.add(letter)
             print("This letter is not in the word.")
             hangmanDisplay(wrongGuesses)
-            print("Used letters: ", guessed_letters)
-
+            print(f"Used letters: {guessed_letters}")
             #End of game
 
         if len(num_letters) == 0:
@@ -150,14 +144,3 @@ def playgame():
             break
 
 playgame()
-
-"""
-
-
-
-# if letter is right fill out letter in the right place
-
-# show the word and leave the places with not guessed letters blank
-
-
-"""
