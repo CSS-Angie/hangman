@@ -31,3 +31,5 @@
 hangman Inspired by JakeEh https://www.youtube.com/@jakeeh.
 
 idea to use global https://www.geeksforgeeks.org/how-to-use-a-variable-from-another-function-in-python/
+
+string/dictionary  without brackets https://www.geeksforgeeks.org/python-string-join-method/?ref=header_outind

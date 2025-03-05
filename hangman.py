@@ -86,9 +86,9 @@ Show underscores that match the number of letters of the word that needs to be g
 def newWord(words):
     word = random.choice(words).upper()
     return word
-letterWord = newWord(words)
+word = newWord(words)
 
-underscoreWord = list(len(letterWord)*"_")
+underscoreWord = list(len(word)*"_")
 print(" ".join(underscoreWord))
 
 """
@@ -104,43 +104,63 @@ def letterInput():
         else: 
             print("Please, choose a letter")
 
-
 """
 Play the game
 """    
 def playgame():
-    word = letterWord
-    print(" ")
+    print("")
     wrongGuesses = 0
     guessed_letters = set()
     num_letters = set(word)
-    global underscoreWord
 
     while len(num_letters) > 0 and wrongGuesses < 6:
         letter = letterInput()
-        print(" ")
+        print("")
         if letter in word: 
             for i in range(len(word)):
                 if word[i] == letter:
                     underscoreWord[i] = letter
+            print("")
+
             print(" ".join(underscoreWord))
-            print(f"Used letters: {guessed_letters}")
+            print("")
+            print(f"Used letters: {' ,'.join(guessed_letters)}")
             num_letters.discard(letter)
         elif letter in guessed_letters:
+            print("")
             print("You already tried this letter. Choose another.")
         else:    
             wrongGuesses +=1
             guessed_letters.add(letter)
+            print("")
             print("This letter is not in the word.")
+            print(colorama.Fore.RED + colorama.Style.BRIGHT)
+            print("")
             hangmanDisplay(wrongGuesses)
-            print(f"Used letters: {guessed_letters}")
+            print("")
+            print(colorama.Back.RESET + colorama.Fore.RESET + colorama.Style.RESET_ALL)
+            print("")
+            print(f"Used letters: {' ,'.join(guessed_letters)}")
+
             #End of game
 
         if len(num_letters) == 0:
-            print("Congratulations! You guessed the word and won!")
+            result = pyfilglet.figlet_format("You Won!", font = "doh")
+            print("Congratulations!")
             break
         if wrongGuesses == 6:
             print("Oh oh! You hang. The word to guess was", word)
             break
-
+     
 playgame()
+
+"""
+Option to replay
+"""
+def replayGame():
+    user_input = input("Do you want to start a new game?\n"
+                "Click Y for Yes:").upper()
+    if user_input == "y":
+        playGame()
+
+replayGame()
