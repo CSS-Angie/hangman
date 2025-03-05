@@ -107,7 +107,7 @@ def letterInput():
 """
 Play the game
 """    
-def playgame():
+def playGame():
     print("")
     print(word)
     wrongGuesses = 0
@@ -158,15 +158,16 @@ def playgame():
             print("Oh oh! You hang. The word to guess was", word)
             break
      
-playgame()
+playGame()
 
 """
 Option to replay
 """
 def replayGame():
+    play_again = playGame()
     user_input = input("Do you want to start a new game?\n"
                 "Click Y for Yes:").upper()
     if user_input == "y":
-        playGame()
+        play_again
 
 replayGame()
