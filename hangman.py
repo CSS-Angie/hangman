@@ -86,10 +86,9 @@ Show underscores that match the number of letters of the word that needs to be g
 def newWord(words):
     word = random.choice(words).upper()
     return word
-word = newWord(words)
 
-underscoreWord = list(len(word)*"_")
-print(" ".join(underscoreWord))
+
+#print(" ".join(underscoreWord))
 
 """
 Function to ask a correct letter from player and to confirm the typed character is a letter and is uppercase to avoid failures
@@ -105,10 +104,24 @@ def letterInput():
             print("Please, choose a letter")
 
 """
+Option to replay
+"""
+def replayGame():
+    user_input = input("Do you want to start a new game?\n"
+                "Click Y for Yes:").upper()
+    if user_input == "Y":
+        playGame()
+    elif user_input == "N":
+        print("Thank you for playing! See you back soon!")
+    else:
+        exit()
+
+"""
 Play the game
 """    
 def playGame():
-    print("")
+    word = newWord(words)
+    underscoreWord = list(len(word)*"_")
     print(word)
     wrongGuesses = 0
     guessed_letters = set()
@@ -124,7 +137,7 @@ def playGame():
             print("")
             print(" ".join(underscoreWord))
             print("")
-            print(f"Used letters: {' ,'.join(guessed_letters)}")
+            print(f"Used letters: {', '.join(guessed_letters)}")
             print("")
             num_letters.discard(letter)
         elif letter in guessed_letters:
@@ -143,7 +156,7 @@ def playGame():
             print("")
             print(" ".join(underscoreWord))
             print("")
-            print(f"Used letters: {' ,'.join(guessed_letters)}")
+            print(f"Used letters: {', '.join(guessed_letters)}")
 
             #End of game
 
@@ -153,21 +166,10 @@ def playGame():
             print(result)
             print(colorama.Back.RESET + colorama.Fore.RESET + colorama.Style.RESET_ALL)
             print("Congratulations! You won!")
-            break
+            replayGame()
         if wrongGuesses == 6:
             print("Oh oh! You hang. The word to guess was", word)
-            break
-     
+            replayGame()
+            
 playGame()
 
-"""
-Option to replay
-"""
-def replayGame():
-    play_again = playGame()
-    user_input = input("Do you want to start a new game?\n"
-                "Click Y for Yes:").upper()
-    if user_input == "y":
-        play_again
-
-replayGame()
