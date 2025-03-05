@@ -1,5 +1,6 @@
 import random
 from words import words 
+from pprint import pprint
 
 import colorama
 from colorama import Fore, Back, Style
@@ -54,7 +55,7 @@ def hangmanDisplay(wrongGuesses):
 
 print(colorama.Fore.YELLOW + colorama.Back.RED)
 
-#hangmanDisplay(6)
+hangmanDisplay(6)
 
 print(colorama.Back.RESET + colorama.Fore.RESET + colorama.Style.RESET_ALL)
 print("")
@@ -114,11 +115,12 @@ def playgame():
     word = letterWord
     wrongGuesses = 0
     global underscoreWord
-    letter = letterInput()
     guessed_letters=set()
     num_letters = set(word)
 
     while len(num_letters) > 0 and wrongGuesses < 6:
+        letter = letterInput()
+        print("Used letters: ")
         if letter in guessed_letters:
             print("You already tried this letter. Choose another.")
         elif letter in num_letters: 
@@ -134,8 +136,10 @@ def playgame():
  
         if len(num_letters) == 0:
             print("Congratulations! You guessed the word and won!")
-        else:
+            break
+        if wrongGuesses == 6:
             print("Oh oh! You hang. The word to guess was", word)
+            break
 
 playgame()
 
