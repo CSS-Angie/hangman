@@ -109,6 +109,7 @@ Play the game
 """    
 def playgame():
     print("")
+    print(word)
     wrongGuesses = 0
     guessed_letters = set()
     num_letters = set(word)
@@ -121,16 +122,16 @@ def playgame():
                 if word[i] == letter:
                     underscoreWord[i] = letter
             print("")
-
             print(" ".join(underscoreWord))
             print("")
             print(f"Used letters: {' ,'.join(guessed_letters)}")
+            print("")
             num_letters.discard(letter)
         elif letter in guessed_letters:
             print("")
             print("You already tried this letter. Choose another.")
         else:    
-            wrongGuesses +=1
+            wrongGuesses += 1
             guessed_letters.add(letter)
             print("")
             print("This letter is not in the word.")
@@ -140,13 +141,18 @@ def playgame():
             print("")
             print(colorama.Back.RESET + colorama.Fore.RESET + colorama.Style.RESET_ALL)
             print("")
+            print(" ".join(underscoreWord))
+            print("")
             print(f"Used letters: {' ,'.join(guessed_letters)}")
 
             #End of game
 
         if len(num_letters) == 0:
-            result = pyfilglet.figlet_format("You Won!", font = "doh")
-            print("Congratulations!")
+            print(colorama.Fore.CYAN + colorama.Style.BRIGHT)
+            result = pyfiglet.figlet_format("WIN", font = "doh")
+            print(result)
+            print(colorama.Back.RESET + colorama.Fore.RESET + colorama.Style.RESET_ALL)
+            print("Congratulations! You won!")
             break
         if wrongGuesses == 6:
             print("Oh oh! You hang. The word to guess was", word)
