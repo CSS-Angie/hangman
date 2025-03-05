@@ -86,10 +86,12 @@ def newWord(words):
     word = random.choice(words).upper()
     return word
     #print(word)
-    underscoreWord = len(word)*" _ "
-    print(" ".join(underscoreWord))
-
 letterWord = newWord(words)
+
+underscoreWord = len(letterWord)*" _ "
+print(" ".join(underscoreWord))
+
+
 
 """
 Function to ask a correct letter from player and to confirm the typed character is a letter and is uppercase to avoid failures
@@ -111,7 +113,7 @@ Play the game
 def playgame():
     word = letterWord
     wrongGuesses = 0
-    
+    global underscoreWord
     letter = letterInput()
     guessed_letters=set()
     num_letters = set(word)
@@ -120,6 +122,9 @@ def playgame():
         if letter in guessed_letters:
             print("You already tried this letter. Choose another.")
         elif letter in num_letters: 
+            
+            
+            
             print(letter)
         else:    
             wrongGuesses +=1
@@ -135,27 +140,12 @@ def playgame():
 playgame()
 
 """
-#start with a number of lives
 
-# when play is pushed, start the game
 
-# choose a random word from the words file and show the places of the total number of letters
-
-# let words all be uppercase
-
-# let the player choose a letter for the word and make it uppercase
-
-# make sure it is just a letter - return a wrong message if a non-letter was typed
 
 # if letter is right fill out letter in the right place
 
 # show the word and leave the places with not guessed letters blank
 
-# if letter is wrong give a message it is wrong
 
-# if the letter is wrong decrease the numbers of live and display an extra limb on the hangman
-
-# end the game after the number of lives is 0 / hangman full OR if no letters are left to guess
-
-# print a message with the results
 """
