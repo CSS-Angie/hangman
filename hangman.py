@@ -19,7 +19,7 @@ print(colorama.Fore.RESET + colorama.Style.RESET_ALL)
 
 """
 Hangman image building up after every wrong guess.
-Inspired by JakeEh https://www.youtube.com/@jakeeh.
+Inspired by JakeEh (https://www.youtube.com/@jakeeh.)
 """
 
 
