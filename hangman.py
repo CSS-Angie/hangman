@@ -122,18 +122,21 @@ Play the game
 def playGame():
     word = newWord(words)
     underscoreWord = list(len(word)*"_")
-    print(word)
     wrongGuesses = 0
     guessed_letters = set()
     num_letters = set(word)
 
     while len(num_letters) > 0 and wrongGuesses < 6:
-        letter = letterInput()
+        print(" ".join(underscoreWord)) 
         print("")
+        letter = letterInput()
         if letter in word: 
             for i in range(len(word)):
                 if word[i] == letter:
                     underscoreWord[i] = letter
+            print("")
+            print("")
+            hangmanDisplay(wrongGuesses)
             print("")
             print(" ".join(underscoreWord))
             print("")
