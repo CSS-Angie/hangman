@@ -5,8 +5,6 @@
 
 #start with a number of lives
 
-# when play is pushed, start the game
-
 # choose a random word from the words file and show the places of the total number of letters
 
 # let words all be uppercase

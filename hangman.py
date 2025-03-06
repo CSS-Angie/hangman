@@ -1,5 +1,5 @@
 import random
-from words import words 
+from words import words
 from pprint import pprint
 
 import colorama
@@ -95,7 +95,7 @@ Function to ask a correct letter from player and to confirm the typed character 
 """
 def letterInput():
     while True:
-        letter = input("Guess a letter: ").upper()
+        letter = input("Guess a letter: \n").upper()
         if letter.isalpha() and len(letter) == 1:
                 return letter
         elif len(letter) > 1:
@@ -104,11 +104,11 @@ def letterInput():
             print("Please, choose a letter")
 
 """
-Option to replay
+Function to offer a replay
 """
 def replayGame():
     user_input = input("Do you want to start a new game?\n"
-                "Click Y for Yes:").upper()
+                "Click Y for Yes:\n").upper()
     if user_input == "Y":
         playGame()
     elif user_input == "N":
