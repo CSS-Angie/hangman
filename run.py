@@ -1,6 +1,5 @@
 import random
 from words import words
-from pprint import pprint
 
 import colorama
 from colorama import Fore, Back, Style
@@ -12,7 +11,8 @@ colorama.init()
 Hangman logo created with colorama and pyfiglet
 """
 
-result = pyfiglet.figlet_format("H A N G M A N", font="alligator")
+
+result = pyfiglet.figlet_format("HANGMAN", font="alligator")
 print(colorama.Fore.RED + colorama.Style.BRIGHT + result)
 print(colorama.Fore.RESET + colorama.Style.RESET_ALL)
 
@@ -71,25 +71,25 @@ Explain the rules of hangman
 
 
 print(colorama.Fore.LIGHTCYAN_EX + colorama.Style.DIM
-      + "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
+      + "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+        "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
 print(colorama.Back.RESET + colorama.Fore.RESET + colorama.Style.RESET_ALL)
 print("HOW TO PLAY HANGMAN\n"
-      "\nHangman is a fun game for all ages."
+      "\nHangman is a fun game for all ages. "
       "As soon as you have learned a few words in"
-      "school,you are able to play this game!\n"
-      "\n1. You are shown a number of underlines. Every"
+      "\nschool,you are able to play this game!\n"
+      "\n1. The mystery word is shown with underlines. Every "
       "underline is a letter you need to guess.\n"
-      "2. You are asked to type one letter each time."
-      "3. The letter is in the word? Great!"
-      "You will see its place in the word shown now.\n"
-      "4. Wrong guess? For each letter you guessed"
-      "wrong a part of the hangman will appear.\n"
+      "2. You are asked to type one letter each time.\n"
+      "3. If the letter is in the word, it shows up at its place.\n"
+      "4. Wrong guess? A piece of hangman's body is added.\n"
       "5. You have six lives for each word you start."
-      "6 times a wrong answer? You lost...\n"
-      "6. You guessed all letters, found the word and"
-      "your hangman isn't finished? Congratulations! You have won!\n")
+      "6 times a wrong answer? You lost.\n"
+      "6. You guessed all the letters before hangman is complete?"
+      " Then you have won!\n")
 print(colorama.Fore.LIGHTCYAN_EX + colorama.Style.DIM
-      + "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
+      + "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+        "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
 print(colorama.Back.RESET + colorama.Fore.RESET + colorama.Style.RESET_ALL)
 
 """
