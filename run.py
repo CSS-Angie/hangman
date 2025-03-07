@@ -4,7 +4,7 @@ from colorama import Fore, Back, Style
 import pyfiglet
 import random
 from words import words
-from pprint import pprint
+# from pprint import pprint
 
 colorama.init()
 

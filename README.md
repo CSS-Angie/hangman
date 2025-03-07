@@ -1,6 +1,6 @@
 # **_Hangman - Portfolio Project 3_**
 
-This document contains all the issues necessary to create and develop the game Hangman in Python. Here is the link to the game [Hangman](https://). The website is a part of the course “Full Stack Software Development” at Code Institute and showcases the knowledge I have gained so far.
+This document contains all the issues necessary to create and develop the game Hangman in Python. Here is the link to the game [Hangman](https://css-angie-hangman-0ba92329c737.herokuapp.com). The website is a part of the course “Full Stack Software Development” at Code Institute and showcases the knowledge I have gained so far.
 
 ![Screenshot of all devices](assets/readme-images/screenshot-all-devices.png)
 
@@ -41,12 +41,12 @@ That is why different categories are a nice-to-have feature for future roll-outs
 
 ## How to play hangman
 
-1. You are shown a number of underlines. Every underline is a letter you need to guess.
-2. You are asked to type one letter each time
-3. The letter is in the word? Great! you will see its place in the word shown now.
-4. Wrong guess? For each letter you guessed wrong a part of the hangman will appear
-5. You have six lives for each word you start. 6 times a wrong answer? You lost...
-6. You guessed all letters, found the word and your hangman isn't finished? Congratulations! You have won!
+1. Each underline stands for a letter to guess in the mystery word.
+2. You are asked to type one letter each time.
+3. If the letter is in the word, it shows up at its place.
+4. Wrong guess? A piece of hangman's body is added.
+5. You have six lives for each word you start. 6 times a wrong answer? You lost.
+6. You guessed all the letters before hangman is complete? Then you have won!
 
 The primary target groups in this case are:
 - Schoolchildren -  At school and at home this game is a great supplement for teachers and parents to try and test new words with their kids. As the game is quite uncomplicated, children are able to play and practise for themselves as well  
@@ -100,8 +100,8 @@ Tasks:
 
 ## Designing the layout and structure
 
-The needs of the game are listed here:
--start with a number of lives
+The needs of the game are (not necessarily in logical order) listed here:
+- start with a number of lives
 - choose a random word from the words file and show the places of the total number of letters
 - let words all be uppercase
 - let the player choose a letter for the word and make it uppercase
@@ -142,12 +142,18 @@ The setup is checked and deployed and ready to be filled with all features.
 ## Hero section
 
 The hero section has the name hangman written in the font alligator from pyfiglet.
-Underneath a full hangman is displayed in the colour yellow with a red background and the words ‘oh oh!’.
+Underneath a full hangman is displayed in the colour yellow and the words ‘oh oh!’.
 Both are shown in a quest to attract the user playing the game.
 
-To be  sure the rules  of the game are clear, these are written out in 6 bullet points between coloured separation lines as an indication that it is not a part of the game.
+Unfortunately during deployment a bug appeared. The font of pyfiglet does not show the upper- and underline in the heroku-app.
+First screenshot is from the heroku-app. Second screenshot was made from command VSCode
 
 ![Hero section](assets/readme-images/hero-section.png)
+![Hero section VS Code](assets/readme-images/hero-section-vscode.png)
+
+To be sure the rules of the game are clear, these are written out in 6 bullet points between coloured separation lines as an indication that it is not a part of the game.
+
+
 
 ## Main section
 
@@ -162,8 +168,7 @@ After typing something, several reactions could pop up:
 Third and continuing is the repetition of the second part, until the word is guessed OR the player ran out of lives.
 
 ![Main – start of the game](assets/readme-images/main-start.png)
-![Main – more than one letter](assets/readme-images/main-more.png)
-![Main – wrong typed](assets/readme-images/main-wrong.png)
+![Main – typos](assets/readme-images/main-typos.png)
 ![Main – wrong letter](assets/readme-images/main-wrong-letter.png)
 ![Main – right letter](assets/readme-images/main-right-letter.png)
 
