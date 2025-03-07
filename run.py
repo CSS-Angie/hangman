@@ -13,8 +13,8 @@ Hangman logo created with colorama and pyfiglet
 """
 
 
-result = pyfiglet.figlet_format("HANGMAN", font="alligator2")
-print(colorama.Fore.RED + colorama.Style.BRIGHT + result)
+result = pyfiglet.figlet_format("H A N G M A N", font="big")
+print(colorama.Fore.YELLOW + colorama.Style.BRIGHT + result)
 print(colorama.Fore.RESET + colorama.Style.RESET_ALL)
 
 
@@ -150,6 +150,7 @@ def playGame():
     wrongGuesses = 0
     guessed_letters = set()
     num_letters = set(word)
+    print(word)
     while len(num_letters) > 0 and wrongGuesses < 6:
         print(" ".join(underscoreWord))
         print("")
@@ -186,8 +187,8 @@ def playGame():
             # End of game
 
         if len(num_letters) == 0:
-            print(colorama.Fore.CYAN + colorama.Style.BRIGHT)
-            result = pyfiglet.figlet_format("WIN", font="alligator2")
+            print(colorama.Fore.YELLOW + colorama.Style.BRIGHT)
+            result = pyfiglet.figlet_format(" ".join(underscoreWord), font="big")
             print(result)
             print(colorama.Back.RESET + colorama.Fore.RESET
                   + colorama.Style.RESET_ALL)
