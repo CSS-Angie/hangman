@@ -137,7 +137,6 @@ def playGame():
     wrongGuesses = 0
     guessed_letters = set()
     num_letters = set(word)
-    print(word)
     while len(num_letters) > 0 and wrongGuesses < 6:
         print(" ".join(underscoreWord))
         print("")

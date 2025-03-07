@@ -114,6 +114,7 @@ The needs of the game are listed here:
 - print a message with the results
 
 To get a better understanding of the flow of the game this is visualized in a flowchart:
+
 ![flowchart of the game](assets/readme-images/flowchart.png)
 
 [Back to top](#table-of-content)
