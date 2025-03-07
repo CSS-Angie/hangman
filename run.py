@@ -119,10 +119,10 @@ def replayGame():
     user_input = input("Do you want to start a new game?\n"
                        "Click Y for Yes or N for No\n").upper()
     if user_input == "Y":
-        os.system('cls')
+        os.system('clear')
         playGame()
     elif user_input == "N":
-        os.system('cls')
+        os.system('clear')
         print("Thank you for playing! See you back soon!")
     else:
         exit()
@@ -173,7 +173,7 @@ def playGame():
             # End of game
 
         if len(num_letters) == 0:
-            os.system('cls')
+            os.system('clear')
             print(colorama.Fore.YELLOW + colorama.Style.BRIGHT)
             result = pyfiglet.figlet_format(" ".join(underscoreWord),
                                             font="big")
