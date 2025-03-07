@@ -123,14 +123,14 @@ To get a better understanding of the flow of the game this is visualized in a fl
 
 ## Setup of the repository
 
-The basic setup starts with setting up the repository for the project in Github. Within it creating a project board and filling the board with the user stories and their requirements with the subsequent tasks, labelling every task in the to-do section with must-have, should-have, and could-have.
+The basic setup starts with setting up the repository for the project in GitHub. Within it creating a project board and filling the board with the user stories and their requirements with the subsequent tasks, labelling every task in the to-do section with must-have, should-have, and could-have.
 For this repository a template is used from Code Institute to make sure all necessary files are in the folder.
-Separately three files named requirements.txt, hangman.py and words.py are created for this project.
+Separately three files named requirements.txt, hangman.py and words.py are created for this project. After reading the deployment requirements, the contents of hangman.py were put in the run.py file and hangman.py was deleted.
 
 ## External sources
 External sources used in this project are mentioned in requirements.txt:
-colorama==0.4.6
-pyfiglet==1.0.2
+  - colorama==0.4.6
+  - pyfiglet==1.0.2
 These are imported at the common places.
 
 The setup is checked and deployed and ready to be filled with all features.
@@ -141,19 +141,23 @@ The setup is checked and deployed and ready to be filled with all features.
 
 ## Hero section
 
-The hero section has the name hangman written in the font alligator from pyfiglet.
-Underneath a full hangman is displayed in the colour yellow and the words ‘oh oh!’.
+The hero section has the name hangman written in the font 'big' from pyfiglet in de colour lightcyan_ex from colorama.
+Underneath a full hangman is displayed and the words * *‘oh oh!’* * in the colour yellow from colorama.
 Both are shown in a quest to attract the user playing the game.
 
 Unfortunately during deployment a bug appeared. The font of pyfiglet does not show the upper- and underline in the heroku-app.
-First screenshot is from the heroku-app. Second screenshot was made from command VSCode
+First screenshot is from the heroku-app. Second screenshot is made from command VSCode. 
+
+Screenshots of the hero section
 
 ![Hero section](assets/readme-images/hero-section.png)
 ![Hero section VS Code](assets/readme-images/hero-section-vscode.png)
 
+<br>
 To be sure the rules of the game are clear, these are written out in 6 bullet points between coloured separation lines as an indication that it is not a part of the game.
-
-
+<br>
+Screenshot of the hangman rules
+![Hero section rules](assets/readme-images/hero-section-rules.png)
 
 ## Main section
 
@@ -161,33 +165,62 @@ The main section content is where the game is played.
 First hint are the number of underscores displayed.
 Second we find the command: “Guess a letter:”. Here the input of the player is asked.
 After typing something, several reactions could pop up:
--	If typing more than one letter  “Please, choose one letter at a time”
--	If typing anything, that does not belong to the alphabet  “Please, choose a letter”
--	After typing a wrong letter  “This letter is not in the word.” + the hangman in red showing an extra limb
--	After typing a letter that is within the word to guess  The word to guess with the letter at the right place + the hangman in white, as nothing new is added to the hangman
+-	If typing more than one letter * *“Please, choose one letter at a time”* *
+-	If typing anything, that does not belong to the alphabet: * *“Please, choose a letter”* *
+-	After typing a wrong letter * *“This letter is not in the word.”* * + the hangman in red showing an extra limb
+-	After typing a letter that is within the word to guess: The word to guess with the letter at the right place + the hangman in white, as nothing new is added to the hangman
 Third and continuing is the repetition of the second part, until the word is guessed OR the player ran out of lives.
 
+Screenshot of the start of the game
+
 ![Main – start of the game](assets/readme-images/main-start.png)
-![Main – typos](assets/readme-images/main-typos.png)
+
+Screenshot of guessing a wrong letter and a right letter
+
 ![Main – wrong letter](assets/readme-images/main-wrong-letter.png)
 ![Main – right letter](assets/readme-images/main-right-letter.png)
+
+<br><br>
+In the main section appeared a bug as well during deployment.
+This time a piece of code was not displayed i.e. the bottom line of the hangman.
+
+Screenshots of the bug
+
+![Main section](assets/readme-images/bug-underline.png)
+![Main section VS Code](assets/readme-images/bug-underline-vs-code.png)
 
 
 ## Footer
 
 The footer will emerge as soon as the game is over and the player lost or won by guessing the word right or not.
-If player wins a large message containing the text ‘win’ in the colour blue and font “doh” emerges.
-Underneath it the text displayed:
-Congratulations! You won!
-Do you want to start a new game?
-Click Y for Yes:
 
-In case the player does not guess the word, the text is in normal font, in a try not to discourage the player from trying again. The text includes the word that should have been guessed as well.
-Oh oh! You hang. The word to guess was PRODUCER
-Do you want to start a new game?
-Click Y for Yes:
+If the player wins a large message appears with the word the player guessed. The text of the correct word is displayed in the colour yellow from colorama and font "big" from pyfiglet.
+Underneath the word is the folowing text displayed:
+* *Congratulations! You won!<br>
+Do you want to start a new game?<br>
+Click Y for Yes or N for No:* *
+
 ![Footer win](assets/readme-images/footer-win.png)
+
+
+In case the player does not guess the word, the text is in normal font, in a try not to discourage the player from trying again. <br>
+The text includes the word that should have been guessed as well.
+* *Oh oh! You hang. The word to guess was PRODUCER<br>
+Do you want to start a new game?<br>
+Click Y for Yes or N for No:* *
+
 ![Footer loose](assets/readme-images/footer-loose.png)
+
+
+The player has three options to type in the console: <br>the Y or N or none of both.<br>
+If the Y is pressed, a new game appears in a clear window.<br>
+If N is pressed, a message is displayed: * *Thank you for playing! See you back soon!* *<br>
+If nor the Y or N is pressed, the game ends without any action
+
+Screenshots of the actions made after the decision of a player to continue or not
+
+![New game yes](assets/readme-images/new-game.png)
+![New game no](assets/readme-images/no-new-game.png)
 
 
 # Technology used
@@ -198,16 +231,18 @@ Click Y for Yes:
 
 ## Other libraries and programs:
 
+- OS - to clear the window at several points
 - Random – for randomizing the words
 - Colorama for adding colour to the screen [Colorama]( https://pypi.org/project/colorama/)
 - Pyfiglet for some ASCII-Art [Pyfiglet]( https://pypi.org/project/pyfiglet/)
 - Canva for creating the flowchart [Canva](https://www.canva.com)
 - VS Code for writing code
-- Project Overview [Github](https://github.com/)
+- Project Overview [GitHub](https://github.com/)
 - Heroku  [Deployment](https://www.heroku.com)
 - ChatGTP for creating a list of 100 random words to use in the game of Hangman[ChatGPT](https://chatgpt.com)
 
 A screenshot of the prompt and the result here:
+
 ![Screen of the hundred words in ChatGPT](assets/readme-images/wordslist.png)
 
 
@@ -215,12 +250,23 @@ A screenshot of the prompt and the result here:
 
 # Deployment
 
-Deployment was done with Heroku.
+Deployment was done with Heroku through GitHub.
 
 To deploy the code the following steps are taken:
 
-1. Create account at heroku.com
-2. Add a project. 
+1. The code was saved with the commands git add . + git commit -m "message" and pushed to GitHub repository with the command git push.
+2. Log in in GitHub.
+3. Create account at heroku.com and log in.
+4. Click on "Create new app" button to add a project. 
+5. Choose an app name and location and click on the button "create app"
+6. Go to "Settings" and navigate to Config Vars. Add the following config variable:
+
+    PORT : 8000
+7. Navigate to Buildpacks and add buildpacks; first Python and second NodeJS (in this specific order).
+8. Next choose the deployment method GitHub, enter th repository name and connect - the message "App connected to GitHub" appears
+9. Scroll down to Manual deploy, select main branch and click the button "Deploy Branch"
+10. Deploy to Heroku will be checked and with the message "Your app was succesfully deployed" the View button shows up.
+11. Clicking on the view button takes you to the deployed app.
 -----------------------------------------------------------------------------
 
 [Back to top](#table-of-content)
@@ -247,10 +293,35 @@ After correcting the layout (halving lines, giving enters, set the right indent)
 | Everything is shortly explained, but nothing looks overcrowded | During the game the player is explained what action is expected, how many lives are left and which letters have been guessed already. Most important, if a letter is guessed it will be displayed at the right position within the word |      Pass     |
 | There is a file where words can be added and deleted | In a separate file words can be exchanged very easily |     Pass     |
 | The program will not need any changes to make use of the file | As the words can be exchanged in a separate file the code for playing the game remains untouched |     Pass     |
+| Only alphabetical characters are excepted as input | An error message appears and asks for a letter (screenshot) |     Pass     |
+| Only one letter is excepted as input | An error message appears and asks for one letter at a time (screenshot) |     Pass     |
+| If a wrong letter is already used the player is warned | A message appears saying the letter was tried already and asks for another letter (screenshot) |     Pass     |
+| To support the player a list of used letters is seen above the word to guess | The list with used letters is shown (screenshot 2) |     Pass     |
+| If a letter is correct, no lives are subtracted | Instead of a red hangman a white hangman appears with the exact same parts as before (screenshot 3 and 4) |     Pass     |
+| Check if one hangman part is added at a time | All numbers of letters are corresponding to the numbers of hangman pieces |     Pass     |
+| If letter is wrong a red hangman appears | Hangman is red when the input contains a wrong letter |     Pass     |
+| If letter is correct a white hangman appears | Hangman is white when input contains a correct letter |     Pass     |
+
+Screenshot 1 - typos check
+
+![Check typos](assets/readme-images/check-typos.png)
+
+
+Screenshot 2 - display of used letters
+
+![Check used letters list](assets/readme-images/used-letters.png)
+
+
+Screenshots 3 and 4 - lives check
+
+![Check lives do not change](assets/readme-images/check-lives-1.png)
+![Check lives do not change](assets/readme-images/check-lives-2.png)
+
 
 ## Bugs
 
-There are no known bugs.
+As mentioned before in the README two bug were found. Though displayed correctly in VS Code, several lines are not shown in the Heroku app. Top and bottom line of the font "big" of pyfiglet and the bottom line of the hangman in the colour red have disappeared in the app.<br>
+This is probably a bug in the Heroku app and difficult to fix. Only possible option left is leaving out pyfiglet and colorama. But as this will give quite a dull styling, the bug is taken for granted.
 
 # Future features
 
