@@ -1,31 +1,30 @@
+import os
+import colorama
+from colorama import Fore, Back, Style
+import pyfiglet
 import random
 from words import words
 from pprint import pprint
 
-import colorama
-from colorama import Fore, Back, Style
-import pyfiglet
-
 colorama.init()
 
+
+result_hangman = pyfiglet.figlet_format("H A N G M A N", font="big")
 """
 Hangman logo created with colorama and pyfiglet
 """
-
-
-result = pyfiglet.figlet_format("H A N G M A N", font="big")
-print(colorama.Fore.YELLOW + colorama.Style.BRIGHT + result)
+print(colorama.Fore.YELLOW + colorama.Style.BRIGHT + result_hangman)
 print(colorama.Fore.RESET + colorama.Style.RESET_ALL)
 
 
-"""
-Hangman image building up after every wrong guess.
-Inspired by JakeEh (https://www.youtube.com/@jakeeh.)
-"""
+
 
 
 def hangmanDisplay(wrongGuesses):
-
+    """
+    Hangman image building up after every wrong guess.
+    Inspired by JakeEh (README)
+    """
     print(" -------- ")
     print("/        \\")
     print("|        |")
@@ -66,15 +65,15 @@ print(colorama.Back.RESET + colorama.Fore.RESET + colorama.Style.RESET_ALL)
 print("")
 print("")
 
-"""
-Explain the rules of hangman
-"""
-
 
 print(colorama.Fore.LIGHTCYAN_EX + colorama.Style.DIM
       + "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
         "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
+"""
+Explanation of the rules of hangman
+"""
 print(colorama.Back.RESET + colorama.Fore.RESET + colorama.Style.RESET_ALL)
+
 print("HOW TO PLAY HANGMAN\n"
       "\nHangman is a fun game for all ages. "
       "As soon as you have learned a few words in"
@@ -92,27 +91,24 @@ print(colorama.Fore.LIGHTCYAN_EX + colorama.Style.DIM
         "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
 print(colorama.Back.RESET + colorama.Fore.RESET + colorama.Style.RESET_ALL)
 
-"""
-Function to choose a random word from the list
-which should be uppercase to prevent errors.
-Show underscores that match the number of
-letters of the word that needs to be guessed.
-"""
-
 
 def newWord(words):
+    """
+    Function chooses a random word from the list words.py and
+    displays underscores of the total number of letters
+    of word to be guessed. 
+    Words should be uppercase to prevent errors. 
+    """
     word = random.choice(words).upper()
     return word
 
 
-"""
-Function to ask a correct letter from player
-and to confirm the typed character is a
-letter and is uppercase to avoid failures
-"""
-
-
 def letterInput():
+    """
+    Function asks input player: a correct letter.
+    Function to confirm the required typed character 
+    is a letter and is uppercase to avoid failures
+    """
     while True:
         letter = input("Guess a letter: \n").upper()
         if letter.isalpha() and len(letter) == 1:
@@ -123,14 +119,13 @@ def letterInput():
             print("Please, choose a letter")
 
 
-"""
-Function to offer a replay
-"""
-
 
 def replayGame():
+    """
+    Function to offer a replay - input player required Y/N.
+    """
     user_input = input("Do you want to start a new game?\n"
-                       "Click Y for Yes:\n").upper()
+                       "Click Y for Yes or N for No\n").upper()
     if user_input == "Y":
         playGame()
     elif user_input == "N":
@@ -139,12 +134,10 @@ def replayGame():
         exit()
 
 
-"""
-Play the game
-"""
-
-
 def playGame():
+    """
+    Function to play the game. All other functions incorporated.
+    """
     word = newWord(words)
     underscoreWord = list(len(word)*"_")
     wrongGuesses = 0
@@ -188,7 +181,8 @@ def playGame():
 
         if len(num_letters) == 0:
             print(colorama.Fore.YELLOW + colorama.Style.BRIGHT)
-            result = pyfiglet.figlet_format(" ".join(underscoreWord), font="big")
+            result = pyfiglet.figlet_format(" ".join(underscoreWord), 
+                                            font="big")
             print(result)
             print(colorama.Back.RESET + colorama.Fore.RESET
                   + colorama.Style.RESET_ALL)
