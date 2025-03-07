@@ -13,11 +13,8 @@ result_hangman = pyfiglet.figlet_format("H A N G M A N", font="big")
 """
 Hangman logo created with colorama and pyfiglet
 """
-print(colorama.Fore.YELLOW + colorama.Style.BRIGHT + result_hangman)
+print(colorama.Fore.LIGHTCYAN_EX + colorama.Style.BRIGHT + result_hangman)
 print(colorama.Fore.RESET + colorama.Style.RESET_ALL)
-
-
-
 
 
 def hangmanDisplay(wrongGuesses):
@@ -57,14 +54,10 @@ def hangmanDisplay(wrongGuesses):
     print("|____________")
 
 
-print(colorama.Fore.YELLOW + colorama.Back.RED)
-
+print(colorama.Fore.YELLOW)
 hangmanDisplay(6)
-
 print(colorama.Back.RESET + colorama.Fore.RESET + colorama.Style.RESET_ALL)
 print("")
-print("")
-
 
 print(colorama.Fore.LIGHTCYAN_EX + colorama.Style.DIM
       + "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
@@ -96,8 +89,8 @@ def newWord(words):
     """
     Function chooses a random word from the list words.py and
     displays underscores of the total number of letters
-    of word to be guessed. 
-    Words should be uppercase to prevent errors. 
+    of word to be guessed.
+    Words should be uppercase to prevent errors.
     """
     word = random.choice(words).upper()
     return word
@@ -106,7 +99,7 @@ def newWord(words):
 def letterInput():
     """
     Function asks input player: a correct letter.
-    Function to confirm the required typed character 
+    Function to confirm the required typed character
     is a letter and is uppercase to avoid failures
     """
     while True:
@@ -119,7 +112,6 @@ def letterInput():
             print("Please, choose a letter")
 
 
-
 def replayGame():
     """
     Function to offer a replay - input player required Y/N.
@@ -127,8 +119,10 @@ def replayGame():
     user_input = input("Do you want to start a new game?\n"
                        "Click Y for Yes or N for No\n").upper()
     if user_input == "Y":
+        os.system('cls')
         playGame()
     elif user_input == "N":
+        os.system('cls')
         print("Thank you for playing! See you back soon!")
     else:
         exit()
@@ -180,8 +174,9 @@ def playGame():
             # End of game
 
         if len(num_letters) == 0:
+            os.system('cls')
             print(colorama.Fore.YELLOW + colorama.Style.BRIGHT)
-            result = pyfiglet.figlet_format(" ".join(underscoreWord), 
+            result = pyfiglet.figlet_format(" ".join(underscoreWord),
                                             font="big")
             print(result)
             print(colorama.Back.RESET + colorama.Fore.RESET
