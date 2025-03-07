@@ -267,7 +267,7 @@ To deploy the code the following steps are taken:
 9. Scroll down to Manual deploy, select main branch and click the button "Deploy Branch"
 10. Deploy to Heroku will be checked and with the message "Your app was succesfully deployed" the View button shows up.
 11. Clicking on the view button takes you to the deployed app.
------------------------------------------------------------------------------
+
 
 [Back to top](#table-of-content)
 
