@@ -105,8 +105,6 @@ def newWord(words):
     return word
 
 
-# print(" ".join(underscoreWord))
-
 """
 Function to ask a correct letter from player
 and to confirm the typed character is a
@@ -152,7 +150,6 @@ def playGame():
     wrongGuesses = 0
     guessed_letters = set()
     num_letters = set(word)
-    print(word)
     while len(num_letters) > 0 and wrongGuesses < 6:
         print(" ".join(underscoreWord))
         print("")
@@ -165,14 +162,13 @@ def playGame():
             print("")
             hangmanDisplay(wrongGuesses)
             print("")
-            print(" ".join(underscoreWord))
-            print("")
             print(f"Used letters: {', '.join(guessed_letters)}")
             print("")
             num_letters.discard(letter)
         elif letter in guessed_letters:
             print("")
             print("You already tried this letter. Choose another.")
+            print("")
         else:
             wrongGuesses += 1
             guessed_letters.add(letter)
@@ -181,13 +177,11 @@ def playGame():
             print(colorama.Fore.RED + colorama.Style.BRIGHT)
             print("")
             hangmanDisplay(wrongGuesses)
-            print("")
             print(colorama.Back.RESET + colorama.Fore.RESET
                   + colorama.Style.RESET_ALL)
             print("")
-            print(" ".join(underscoreWord))
-            print("")
             print(f"Used letters: {', '.join(guessed_letters)}")
+            print("")
 
             # End of game
 
