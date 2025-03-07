@@ -1,5 +1,6 @@
 import random
 from words import words
+from pprint import pprint
 
 import colorama
 from colorama import Fore, Back, Style
@@ -12,7 +13,7 @@ Hangman logo created with colorama and pyfiglet
 """
 
 
-result = pyfiglet.figlet_format("HANGMAN", font="alligator")
+result = pyfiglet.figlet_format("HANGMAN", font="alligator2")
 print(colorama.Fore.RED + colorama.Style.BRIGHT + result)
 print(colorama.Fore.RESET + colorama.Style.RESET_ALL)
 
@@ -72,14 +73,13 @@ Explain the rules of hangman
 
 print(colorama.Fore.LIGHTCYAN_EX + colorama.Style.DIM
       + "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
-        "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
+        "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
 print(colorama.Back.RESET + colorama.Fore.RESET + colorama.Style.RESET_ALL)
 print("HOW TO PLAY HANGMAN\n"
       "\nHangman is a fun game for all ages. "
       "As soon as you have learned a few words in"
       "\nschool,you are able to play this game!\n"
-      "\n1. The mystery word is shown with underlines. Every "
-      "underline is a letter you need to guess.\n"
+      "\n1. Each underline stands for a letter to guess in the mystery word.\n"
       "2. You are asked to type one letter each time.\n"
       "3. If the letter is in the word, it shows up at its place.\n"
       "4. Wrong guess? A piece of hangman's body is added.\n"
@@ -89,7 +89,7 @@ print("HOW TO PLAY HANGMAN\n"
       " Then you have won!\n")
 print(colorama.Fore.LIGHTCYAN_EX + colorama.Style.DIM
       + "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
-        "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
+        "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
 print(colorama.Back.RESET + colorama.Fore.RESET + colorama.Style.RESET_ALL)
 
 """
@@ -152,7 +152,7 @@ def playGame():
     wrongGuesses = 0
     guessed_letters = set()
     num_letters = set(word)
-
+    print(word)
     while len(num_letters) > 0 and wrongGuesses < 6:
         print(" ".join(underscoreWord))
         print("")
@@ -193,7 +193,7 @@ def playGame():
 
         if len(num_letters) == 0:
             print(colorama.Fore.CYAN + colorama.Style.BRIGHT)
-            result = pyfiglet.figlet_format("WIN", font="doh")
+            result = pyfiglet.figlet_format("WIN", font="alligator2")
             print(result)
             print(colorama.Back.RESET + colorama.Fore.RESET
                   + colorama.Style.RESET_ALL)
